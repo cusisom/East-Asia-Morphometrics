@@ -1,6 +1,6 @@
 # East Asia Morphometrics
 
-This repo exists to collect, organize and maintain data pertaining to the final project for Zoology 710: Data Science in R for Biologists. This final project is directed at a 3D Geometric Morphometric analysis of Craniometric Variation on modern and historical populations in Japan and Korea. The analysis is built off of the original dissertation(Distinguishing Closely Related Modern Human Populations Using Cranial Morphometrics: A View From Korea And Japan) by Kat Harrington published to satisfy the requirements for the PhD program in Anthropology at UH Manoa (2020). 
+This repo exists to collect, organize and maintain data pertaining to the final project for 'Zoology 710: Data Science in R for Biologists'. This final project is directed at a 3D Geometric Morphometric analysis of Craniometric Variation on modern and historical populations in Japan and Korea. The analysis is built off of the original dissertation (Distinguishing Closely Related Modern Human Populations Using Cranial Morphometrics: A View From Korea And Japan) by Kat Platchard published to satisfy the requirements for the PhD program in Anthropology at UH Manoa (2020). 
 
 ## History
 
