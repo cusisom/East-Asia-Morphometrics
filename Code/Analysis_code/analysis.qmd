@@ -1,0 +1,11 @@
+---
+title: "Detecting Cranial Variation in Modern Populations"
+author: "Daniel Cusimano"
+date: "04/05/2023"
+output: html_document
+---
+This project is centered around original research from Dr. Kat Platchard (formerly Kat Harrington) conducted for her PhD dissertaion at UH Manoa, 2020. I will use this .html to act as my notes page in the process of cleaning and analyzing the given data. I am not currently sure it this will be able to pull code chunks from two separate codes, but I will find out.
+
+# Goal 1
+
+My first goal for this project will be to consolidate the three spreadsheets provided into a single dataset. An additional need here will be to define all of the measurements in the datasets that are currently marked by acronyms. 
