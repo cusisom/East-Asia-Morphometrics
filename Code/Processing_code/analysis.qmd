@@ -30,4 +30,9 @@ knitr::read_chunk('processingcode.r')
 ```{r, viewdata1}
 ```
 
-This is a problem
+# Data Dictionary
+
+This first data dictionary contains the definitions of cranial landmarks used in this study.
+
+```{r, datadictionary1}
+```

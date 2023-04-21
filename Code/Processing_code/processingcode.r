@@ -6,6 +6,7 @@
 require(dplyr) #for data processing/cleaning
 require(tidyr) #for data processing/cleaning
 require(skimr) #for nice visualization of data 
+require(geomorph)
 
 
 ## ---- loaddata ---------
@@ -25,3 +26,7 @@ rawdata$ID <- as.factor(rawdata$ID)
 
 skim(rawdata)
 
+## ---- datadictionary1 --------
+
+dictionary1 <- read.csv(paste(data_path, "Cranial_landmarks.csv", sep=""))
+print(dictionary1)
