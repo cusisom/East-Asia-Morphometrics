@@ -8,8 +8,9 @@ This project is centered around original research from Dr. Kat Platchard (former
 
 # Goal 1
 
-My first goal for this project will be to consolidate the three spreadsheets provided into a single dataset. An additional need here will be to define all of the measurements in the datasets that are currently marked by acronyms. 
+My first objective for this project is to prepare the data for analysis. While Dr. Platchard was able to complete various statistical analyses with this data, she did not do so by using the r statistical software. Thus, the rawdata for this project will need to be manipulated prior to its analysis. One important consideration is that the information provided by Dr. Plachard was embedded in thre excel files. These were then converted into .csv formats and loaded separately into r for this project. The follow text details the transformation of this data into a workable format. 
 
+This markdown file utilizes codechunks. 
 ```{r }
 #| cache = FALSE
 knitr::read_chunk('processingcode.r')
@@ -17,6 +18,7 @@ knitr::read_chunk('processingcode.r')
 
 ```{r, loadpackages}
 #| message: FALSE
+#| warning: FALSE 
 ```
 
 ```{r, loaddata}
@@ -30,9 +32,17 @@ knitr::read_chunk('processingcode.r')
 ```{r, viewdata1}
 ```
 
-# Data Dictionary
-
-This first data dictionary contains the definitions of cranial landmarks used in this study.
+```{r, viewdata2}
+```
 
 ```{r, datadictionary1}
+```
+
+```{r, datadictionary2}
+```
+
+```{r, mergedata}
+```
+
+```{r, arrangedata}
 ```
