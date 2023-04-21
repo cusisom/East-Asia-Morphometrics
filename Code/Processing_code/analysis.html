@@ -145,28 +145,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">read_chunk</span>(<span class="st">'processingcode.r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr) <span class="co">#for data processing/cleaning</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyr) <span class="co">#for data processing/cleaning</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(skimr) <span class="co">#for nice visualization of data </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr) <span class="co">#for data processing/cleaning</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyr) <span class="co">#for data processing/cleaning</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(skimr) <span class="co">#for nice visualization of data </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(geomorph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'geomorph' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'RRPP' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'rgl' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'Matrix' was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(knitr) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#path to data</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data_location <span class="ot">&lt;-</span> <span class="st">"../../Data/Raw_data/Raw_Japan.csv"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data_path <span class="ot">&lt;-</span> <span class="st">"../../Data/Raw_data/"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#I need to read in the rawdata.</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Can I read separate .csv files?</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>rawdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(data_location, <span class="at">check.names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>rawdata<span class="sc">$</span>ID <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(rawdata<span class="sc">$</span>ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#path to data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data_location <span class="ot">&lt;-</span> <span class="st">"../../Data/Raw_data/Raw_Japan.csv"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>data_path <span class="ot">&lt;-</span> <span class="st">"../../Data/Raw_data/"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#I need to read in the rawdata.</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Can I read separate .csv files?</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>rawdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(data_location, <span class="at">check.names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>rawdata<span class="sc">$</span>ID <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(rawdata<span class="sc">$</span>ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-management" class="level1">
 <h1>Data Management</h1>
 <p>The above code was used for the previous project. The only issue here is that I have multiple .csv files. When I read data in using the following code, I only pull information from one file (Raw_Japan).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(rawdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(rawdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <caption>Data summary</caption>
@@ -1409,7 +1426,207 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
-<p>This is a problem</p>
+</section>
+<section id="data-dictionary" class="level1">
+<h1>Data Dictionary</h1>
+<p>This first data dictionary contains the definitions of cranial landmarks used in this study.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dictionary1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">paste</span>(data_path, <span class="st">"Cranial_landmarks.csv"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dictionary1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 2%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Landmark</th>
+<th style="text-align: left;">Abbreviation</th>
+<th style="text-align: left;">Definition.and.Measurement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alare (left and right)</td>
+<td style="text-align: left;">alael; alarr</td>
+<td style="text-align: left;">The most lateral points on the nasal aperture; instrumentally determined in the transverse plane (Bass, 1995; Buikstra and Ubelaker, 1994).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alveolan (rubber band)</td>
+<td style="text-align: left;">alv</td>
+<td style="text-align: left;">The meeting point of the midsagittal plane and a line connecting the posterior borders of the alveolar crests; location determined with the use of a rubber band around the alveolar crest (Buikstra and Ubelaker, 1994).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Asterion (left and right)</td>
+<td style="text-align: left;">astl; astr</td>
+<td style="text-align: left;">The sutural meeting point whaere the temporal, parietal, and occipital bones meet; if the meeting point includes a wormian bone, the lambdoid suture was extended followed by the temporo-parietal and temporo- occipital sutures (Howells, 1973; Martin, 1957).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Basion</td>
+<td style="text-align: left;">bas</td>
+<td style="text-align: left;">The meeting point of the midsagittal plane and the anterior border of the foramen magnum; located on the anterior-inferior portion of the rim (Buikstra and Ubelaker, 1994; Martin, 1957).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bregma</td>
+<td style="text-align: left;">brg</td>
+<td style="text-align: left;">The sutural meeting point of the coronal and sagittal sutures (Martin, 1957).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cheek height inferior point</td>
+<td style="text-align: left;">wmhi</td>
+<td style="text-align: left;">The point of the inferior maxilla for the minimum cheek height, medial of the masseter attachment; instrumentally determined with sliding calipers, one caliper point on the inferior orbital rim and the other on the inferior maxilla where the minimum distance is located (Howells, 1973).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cheek height superior point</td>
+<td style="text-align: left;">wmhs</td>
+<td style="text-align: left;">The point on the inferior orbital rim for the minimum cheek height; instrumentally determined with sliding calipers, one caliper point on the inferior orbital rim and the other on the superior maxilla where the minimum distance is located (Howells, 1973).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dacryon (left and right)</td>
+<td style="text-align: left;">dacl; dacr</td>
+<td style="text-align: left;">The meeting point of the lacrimal, frontal, and maxilla bones in the orbit at the apex of the lacrimal fossa (Buikstra and Ubelaker, 1994; Martin, 1957).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ectoconchion (left and right)</td>
+<td style="text-align: left;">ectl; ectr</td>
+<td style="text-align: left;">The intersection point of the anterior surface of the lateral orbital border and a line bisecting the long axis of the orbit; location determined by using a toothpick or similar object that is held parallel to the superior orbital border and moved down until it bisects the orbit in half, where the toothpick crosses the lateral border is where ectoconchion is located (Buikstra and Ubelaker, 1994; Howells, 1973).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eurion (left and right)</td>
+<td style="text-align: left;">eurl; eurr</td>
+<td style="text-align: left;">The lateral-most point (left and right) of the cranial vault comprising the greatest cranial breadth, located on the parietals or temporal bones superior to the zygomatic arch and external auditory meatus; instrumentally determined using spreading calipers to find the widest measurment of the cranial vault (Bass, 1995; Buikstra and Ubelaker, 1994).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Foramen magnum breadth points (left and right)</td>
+<td style="text-align: left;">fobl; fobr</td>
+<td style="text-align: left;">The lateral-most point (left and right sides) of the foramen magnum rim (Lahr, 1992).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Frontomalare anterior (left and right)</td>
+<td style="text-align: left;">fmal; fmar</td>
+<td style="text-align: left;">The anterior-most point of the fronto-malar suture (Howells, 1973).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Frontomalare temporale (left and right)</td>
+<td style="text-align: left;">fmtl; fmtr</td>
+<td style="text-align: left;">The lateral-most point of the fronto-malar suture (Howells, 1973).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Frontotemporale (left and right)</td>
+<td style="text-align: left;">wfbl; wfbr</td>
+<td style="text-align: left;">The anteriomedial-most point of the temporal line (Buikstra and Ubelaker, 1994; Martin, 1957).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Glabella</td>
+<td style="text-align: left;">glb</td>
+<td style="text-align: left;">The anterior-most point of the midsagittal plane on the frontal bone above the frontonasal suture (Buikstra and Ubelaker, 1994; Martin, 1957).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jugale (left and right)</td>
+<td style="text-align: left;">jugl; jugr</td>
+<td style="text-align: left;">The point of the deepest curvature on the zygomatic bone between the temporal and frontal processes (Martin, 1957).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lambda</td>
+<td style="text-align: left;">lam</td>
+<td style="text-align: left;">The meeting point of the sigittal and labmdoid sutures, when a wormian bone is present, extend the sagittal and lambdoid sutures with a pencile into the wormian and where the lines meet is the location of lambda (Buikstra and Ubelaker, 1994; Howells, 1973; Martin, 1957).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lower orbital border</td>
+<td style="text-align: left;">obhi</td>
+<td style="text-align: left;">The intersection point of the lower orbital rim and a line that bisects the orbit and is perpendicular to the long axis of the orbit, this point is an inside measurement and is taken at the superior apex of the lower orbital rim; location is determined by using a toothpick or similar object that is held perpendicular to the superior orbital border and moved until it bisects the orbit in half, where the toothpick crosses the lower border is where the point is located (Howells, 1973).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mastoidale (left and right)</td>
+<td style="text-align: left;">mastl; mastr</td>
+<td style="text-align: left;">The most inferiolateral point of the mastoid process (Martin, 1957).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maximum frontal point (left and right)</td>
+<td style="text-align: left;">xfbl; xfbr</td>
+<td style="text-align: left;">The point of the coronal suture where the frontal bone is at its maximum width, not on the temporal lines; instrumentally determine with spreading calipers; each caliper point on opposite ends of the frontal bone at symmetrical points, sliding them up and down along the coronal suture to find the maximum width (Howells, 1973).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Most inferior nasal border (left and right)</td>
+<td style="text-align: left;">nlhil; nlhir</td>
+<td style="text-align: left;">The inferior-most point on the lower rim of the nasal aperture on either side, at the beginning of the nasal floor (Howells, 1973).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nasion</td>
+<td style="text-align: left;">nas</td>
+<td style="text-align: left;">The meeting point of the fronto-nasal suture and the midsagittal plane (Buikstra and Ubelaker, 1994; Howells, 1973; Martin, 1957).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Opisthocranion</td>
+<td style="text-align: left;">opg</td>
+<td style="text-align: left;">The posterior-most point of the cranium on the occipital bone, farthest from glabella, the location should not be on the inion hook unless it is on a well-developed crest; instrumentall determined with spreading calipers, one caliper point on the glabella, and the other point on the occipital at the midsagittal plane and moved up and down until the maximum distance is found (Howells, 1973).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Opisthion</td>
+<td style="text-align: left;">ops</td>
+<td style="text-align: left;">The meeting point of the midsagittal plane and the posterior border of the foramen magnum; located on the inferior portion of the rim (Buikstra and Ubelaker, 1994; Howells, 1973; Martin, 1957).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Porion (left and right)</td>
+<td style="text-align: left;">porl; porr</td>
+<td style="text-align: left;">The superior-most point on the margin of the external auditory meatus (Martin, 1957).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Prosthion (Howells)</td>
+<td style="text-align: left;">prosH</td>
+<td style="text-align: left;">The anterior-most point on the midsagittal plane on the alveolar border, between the central incisors (Howells, 1973).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Roots of zygomatic processes (left and right)</td>
+<td style="text-align: left;">aubl; aubr</td>
+<td style="text-align: left;">The deepest incurvature of the roots of the zygomatic process; measured to the outside of the roots, generally slightly anterior to the meatus (Howells, 1973).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Stephanion (left and right)</td>
+<td style="text-align: left;">stpl; stpr</td>
+<td style="text-align: left;">The meeting point of the coronal suture and the inferior temporal line (the superior limit of the temporal muscle) (Howells, 1973).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subspinale</td>
+<td style="text-align: left;">ssp</td>
+<td style="text-align: left;">The deepest incurvature point below the anterior nasal spine when viewed in profile (Howells, 1973).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Upper orbital border</td>
+<td style="text-align: left;">obhs</td>
+<td style="text-align: left;">The intersection point of the upper orbital rim and a line that bisects the orbit and is perpendicular to the long axis of the orbit, this point is an inside measurement and is taken at the inferior apex of the upper orbital rim; location is determined by using a toothpick or similar object that is held perpendicular to the superior orbital border and moved until it bisects the orbit in half, where the toothpick crosses the upper border is where the point is located (Howells, 1973).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zygion (left and right)</td>
+<td style="text-align: left;">zygl; zygr</td>
+<td style="text-align: left;">The lateral-most point on the zygomatic arch (Buikstra and Ubelaker, 1994; Martin, 1957).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zygomaxilare (left and right)</td>
+<td style="text-align: left;">zygoml; zygomr</td>
+<td style="text-align: left;">The inferior, anterior point of the zygomaxillary suture and the inferior orbital rim, taken midway between the facial and orbital floor surfaces (Howells, 1973).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zygoorbitale (left and right)</td>
+<td style="text-align: left;">zygool; zygoor</td>
+<td style="text-align: left;">The meeting point of the zygomaxillary suture and the inferior orbital rim, taken midway between the facial and orbital floor surfaces (Howells, 1973).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zygotemporale inferior (left and right)</td>
+<td style="text-align: left;">zytil; zytir</td>
+<td style="text-align: left;">The inferior-most point on the zygo-temporal suture (Howells, 1973).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zygotemporale superior (left and right)</td>
+<td style="text-align: left;">zytsl; zytsr</td>
+<td style="text-align: left;">The superior-most point on the zygo-temporal suture (Howells, 1973).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
 
 </main>
