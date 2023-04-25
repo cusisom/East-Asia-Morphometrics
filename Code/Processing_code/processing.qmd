@@ -1,0 +1,50 @@
+---
+title: "Detecting Cranial Variation in Modern Populations"
+author: "Daniel Cusimano"
+date: "04/05/2023"
+format:
+	html: default
+	pdf: default
+---
+This project is centered around original research from Dr. Kat Platchard (formerly Kat Harrington) conducted for her PhD dissertaion at UH Manoa, 2020. I will use this .html to act as my notes page in the process of cleaning and analyzing the given data. I am not currently sure it this will be able to pull code chunks from two separate codes, but I will find out.
+
+# Goal 1
+
+My first objective for this project is to prepare the data for analysis. While Dr. Platchard was able to complete various statistical analyses with this data, she did not do so by using the r statistical software. Thus, the rawdata for this project will need to be manipulated prior to its analysis. One important consideration is that the information provided by Dr. Plachard was embedded in thre excel files. These were then converted into .csv formats and loaded separately into r for this project. The follow text details the transformation of this data into a workable format. 
+
+This markdown file utilizes codechunks. 
+```{r }
+#| cache = FALSE
+knitr::read_chunk('processingcode.r')
+```
+
+```{r, loadpackages}
+#| message: FALSE
+#| warning: FALSE 
+```
+
+```{r, loaddata}
+```
+
+# Data Management
+
+ The above code was used for the previous project. The only issue here is that I have multiple .csv files. When I read data in using the following code, I only pull information from one file (Raw_Japan).
+
+
+```{r, viewdata1}
+```
+
+```{r, viewdata2}
+```
+
+```{r, datadictionary1}
+```
+
+```{r, datadictionary2}
+```
+
+```{r, mergedata}
+```
+
+```{r, arrangedata}
+```
