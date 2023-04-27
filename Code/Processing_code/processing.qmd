@@ -46,6 +46,8 @@ knitr::read_chunk('processingcode.r')
 
 ```{r, arrangedata}
 ```
+```{r, d1array}
+```
 
-```{d2Array}
+```{r, d2Array}
 ```
