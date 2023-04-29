@@ -4,18 +4,22 @@ This folder will be populated by three documents. The processed data will be sav
 
 # Contents
 
-The following files are found in this folder.
+The files in this folder include the reorganized data into datasets with associated demographic information and datasets formated as arrays for morphometric analysis. Each file was written in .csv and .rds formats. 
 
-## Raw Data
+	`Japan_array.csv` = Japan data ready for morphometric analysis
+	`Japan_array.rds` = Japan data ready for morphometric analysis
+	`Korea_array.csv` = Korea data ready for morphometric analysis
+	`Korea_array.rds` = Korea data ready for morphometric analysis
+	
+	`Japan_dem.csv` = Japan data merged with pertinent demographic data from the `Raw_classifiers.csv` file provided by the original investigator. 
+	`Japan_dem.rds` = Japan data merged with pertinent demographic data from the `Raw_classifiers.csv` file provided by the original investigator. 
+	`Korea_dem.csv` = Korea data merged with pertinent demographic data from the `Raw_classifiers.csv` file provided by the original investigator. 
+	`Korea_dem.rds` = Korea data merged with pertinent demographic data from the `Raw_classifiers.csv` file provided by the original investigator. 
 
-		`Raw_Japan.csv` - Raw data on modern crania from Japan
-		`Raw_korea.csv` - Raw data on modern crania from Korea
-		`Raw_classifiers` - Raw data on Demographic factors and Specimen IDs
 
-## Processed Data
-
-		`datadictionary.csv` - Table of Cranial Landmark definitions
 
 # History
 
-No work has yet been done on the Raw_data
+The array and demographic files were completed on 4/27/2023
+
+The files were pushed through to this repo on 4/29/2023
