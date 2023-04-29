@@ -1,0 +1,24 @@
+---
+title: "Detecting Cranial Variation in Modern Populations"
+subtitle: "Analysis"
+author: "Daniel Cusimano"
+date: "04/05/2023"
+output: html_document
+---
+
+This markdown file utilizes codechunks. 
+```{r }
+#| cache = FALSE
+knitr::read_chunk('EAanalysis.r')
+```
+
+```{r, loadpackages}
+#| message: FALSE
+#| warning: FALSE 
+```
+
+```{r, loaddata}
+```
+
+```{r, Step1}
+```

@@ -20,7 +20,6 @@ data_location2 <- "../../Data/Raw_data/Raw_korea.csv"
 data_path <- "../../Data/Raw_data/"
 
 #I need to read in the rawdata.
-#Can I read separate .csv files?
 
 rawdata1 <- read.csv(data_location1, check.names=FALSE)
 rawdata1$ID <- as.factor(rawdata1$ID)
@@ -123,16 +122,13 @@ land1 <- d1[,-c(1:3)]
 #In making my array, I will still want each individual sheet to be associated with the specimen IDs instead of numeric rownames
 #Check rownames
 rownames(land1)
+class(rownames(land1))
+#This will become an issue later as I try to run my analyses.
+#I will take care of the problem now and convert this to numeric.
 
-#Change rownames to specimen IDs
-rownames(land2) <- d2$ID
 
-head(land2)
+kable(land1[1:10, ])
 
-#Next step is to transform my data into an array
-#I need to determine how many landmarks I have so I can set the parameters
-
-dim(land1)
 
 #this tells me that my data is comprised of 92 individual specimens, each with and associated 114 landmark measurements
 #I know that each landmark is given x, y, and z data
@@ -141,8 +137,12 @@ dim(land1)
 #Noting that there are three data points for each I can divide the total measure by 3 to get the total landmarks
 
 my_mat <- apply(as.matrix.noquote(land1), 2, as.numeric)
-my_mat
+my_mat[1:4,1:3]
 
+#Next step is to transform my data into an array
+#I need to determine how many landmarks I have so I can set the parameters
+
+dim(land1)
 #From this I can develop an array for my land2 data (92 specimens) that has 38 landmarks with 3 measures per landmark
 
 d1array <- arrayspecs(my_mat, 38, 3)
@@ -171,10 +171,11 @@ land2 <- d2[,-c(1:3)]
 #Check rownames
 rownames(land2)
 
-#Change rownames to specimen IDs
-rownames(land2) <- d2$ID
 
-head(land2)
+kable(land2[1:10, ])
+
+my_mat2 <- apply(as.matrix.noquote(land2), 2, as.numeric)
+my_mat2[1:4,1:3]
 
 #Next step is to transform my data into an array
 #I need to determine how many landmarks I have so I can set the parameters
@@ -192,12 +193,12 @@ dim(land2)
 #From this I can develop an array for my land2 data (92 specimens) that has 38 landmarks with 3 measures per landmark
 
 my_mat2 <- apply(as.matrix.noquote(land2), 2, as.numeric)
-my_mat2
+my_mat2[1:4,1:3]
 
 #From this I can develop an array for my land2 data (92 specimens) that has 38 landmarks with 3 measures per landmark
 
-d1array <- arrayspecs(my_mat2, 38, 3)
-d2array <- arrayspecs(land2, 38, 3)
+d2array <- arrayspecs(my_mat2, 38, 3)
+
 
 #I want to check my data but I don't want it to take up too much space
 #I can index the first couple of sheets to see the layout
