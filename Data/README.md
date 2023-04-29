@@ -4,13 +4,13 @@ Material in this folder includes the original morphometrics dataset provided by 
 
 ## Folder Contents
 
-The two subfolders found here store the original content, the output files fromthe data processing code, and the data dictionary. 
+The two subfolders found here store the original content, the output files from the data processing code, and the data dictionary. 
 
 ### Raw Data 
 
 The Data provided for this project (found in the `Raw_data` folder) is divided into three separate Excel files. Additionally, there was no data dictionary provided. Two immediate goals of this project are to use the material in this folder to generate a consolidated data file and to develop the data dictionary.
 
-The files below detail 3D Cranial Landmark Data for modern populations in Korea and Japan. 
+The files below detail 3D Cranial Landmark Data for modern populations in Korea and Japan. In addition is the data dictionary created on 4/20/2023.
 
 
 		`Raw_Japan.csv` - Raw data on modern crania from Japan

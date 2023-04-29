@@ -6,7 +6,7 @@ The `Analysis_code` folder will be used for statistical analyses and for the pro
 
 # Code Documentaion
 
-There are two primary .r scripts for this project. The first script (`processingcode.r`) can be found in the `Processing_code` folder. This file was created to organize and visualize the 3D morphometric data for this project into a format that is ready for analysis and easy to read. The second file, `EAanalysis.r` is found ing the `Analysis_code` folder. THis file is still being developed. It uses the finished product from the Processing Code to examine the differences between two large populations in East Asia (one from Korea and one from Japan). 
+There are two primary .r scripts for this project. The first script (`processingcode.r`) can be found in the `Processing_code` folder. This file was created to organize and visualize the 3D morphometric data for this project into a format that is ready for analysis and easy to read. The second file, `EAanalysis.r` is found ing the `Analysis_code` folder. This file is still being developed. It uses the finished product from the Processing Code to examine the differences between two large populations in East Asia (one from Korea and one from Japan). 
 
 ### Inputs
 		reads in the following files from `../../Data/Raw_data/`

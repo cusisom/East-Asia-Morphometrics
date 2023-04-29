@@ -9,7 +9,9 @@ This repo exists to collect, organize and maintain data pertaining to the final 
 2023-04-20 Data dictionary developed for Cranial Landmark data
 
 2023-04-27 Processing code and Processed Data files completed
+
 2023-04-29 All processing files pushed through to this repo
+
 2023-04-29 All ReadMes updated
 
 ## Acknowledgement
