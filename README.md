@@ -6,6 +6,12 @@ This repo exists to collect, organize and maintain data pertaining to the final 
 
 2023-04-04 Creation of Repository, creation of Data and Code folders, and import of original dataset. 
 
+2023-04-20 Data dictionary developed for Cranial Landmark data
+
+2023-04-27 Processing code and Processed Data files completed
+2023-04-29 All processing files pushed through to this repo
+2023-04-29 All ReadMes updated
+
 ## Acknowledgement
 
 This work adds to the original dissertation by Dr. Kat Platchard (formerly Kat Harrington) (Harrington, 2020).
