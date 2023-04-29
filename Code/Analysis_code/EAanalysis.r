@@ -8,7 +8,7 @@ require(tidyr) #for data processing/cleaning
 require(skimr) #for nice visualization of data 
 require(geomorph)
 require(knitr) 
-require(gapminder)
+
 
 
 
@@ -30,4 +30,4 @@ d1array <- readRDS(data_location1)
 d1array.gpa <- gpagen(d1array, print.progress=FALSE)
 
 summary(d1array.gpa)
-plot(d1array)
+plot(d1array.gpa)
