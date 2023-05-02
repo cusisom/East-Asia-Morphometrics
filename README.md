@@ -14,6 +14,8 @@ This repo exists to collect, organize and maintain data pertaining to the final 
 
 2023-04-29 All ReadMes updated
 
+2023-05-02 Analysis files added, all scripts and .qmds updated, all READMEs updated.
+
 ## Acknowledgement
 
 This work adds to the original dissertation by Dr. Kat Platchard (formerly Kat Harrington) (Harrington, 2020).

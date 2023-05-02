@@ -4,11 +4,17 @@ This folder holds the .r script for data analysis. Included also in this folder 
 
 ## Folder Contents
 
-The three files (besides this README) all encompass the same material.
+The three code files all encompass the same material.
 
 	`EAanalysis.r` = The script developed for data analysis
 	`EAanalysis.qmd` = The markdown file created for presentation of analysis.
 	`EAanalysis.html` = An easy to follow walkthrough and visualization of my analysis.
+
+Additionally, there are four image files that are used in my EAanalysis.qmd. 
+	`d1array.png` = Anterior view of array plot
+	`d1array1.png` = Lateral view of array plot
+	`d1Graphic.png` = Anterior view of mean shape plot
+	`d1Graphic2.png` = Lateral view of mean shape plot
 
 ## Viewing
 
