@@ -12,6 +12,11 @@ This markdown file utilizes codechunks.
 knitr::read_chunk('EAanalysis.r')
 ```
 
+```{r}
+library(rgl)
+setupKnitr(autoprint = TRUE)
+```
+
 ```{r, loadpackages}
 #| message: FALSE
 #| warning: FALSE 
