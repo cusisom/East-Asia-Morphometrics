@@ -5,15 +5,15 @@ author: "Daniel Cusimano"
 date: "04/05/2023"
 output: html_document
 ---
-This project is centered around original research from Dr. Kat Platchard (formerly Kat Harrington) conducted for her PhD dissertaion at UH Manoa, 2020. I will use this .html to act as my notes page in the process of cleaning and analyzing the given data. 
+This project is centered around original research from Dr. Kat Platchard (formerly Kat Harrington) conducted for her PhD dissertaion at UH Manoa, 2020. I used this .html to act as my notes page in the process of cleaning and analyzing the given data. The subsequent analytical work can be found in the `Analysis_code` folder in the same repository. 
 
-This markdown file is mostly for me. I will walk through my logic for each step. 
+This markdown file is mostly for me as I try to walk through my logic for each step. 
 
 # Data Processing Layout
 
 My first objective for this project is to prepare the data for analysis. While Dr. Platchard was able to complete various statistical analyses, she did not do so by using the r statistical software. Thus, the rawdata for this project will need to be manipulated prior to its analysis. 
 
-The ultimate goal is to organize the data into an array. Before this, I will organize the files into a simplified format for visualization. 
+The ultimate goal is to organize the data into an array. Before this, I wanted to arrange the data into a viewer friendly format. 
 
 # Set up for R 
 
@@ -30,35 +30,56 @@ A variety of packages are needed.
 #| message: FALSE
 #| warning: FALSE 
 ```
-
+Dr. Harrington provided me with three .csv files which are loaded below. The first two files are her raw 3D geometric morphomtric data on modern populations from Japan and Korea. She had originally suggest that I could use the data from archaeological collections but this was not included in the files I recieved. The third file, titled 'Raw_classifiers` is a small spreadsheet with demographic data (Population, Period, Sex) for each specimen. 
 
 ```{r, loaddata}
 ```
 
-# Data Management
+# Data Summary
 
-I have two primary data files containing 3D craniometric landmark data for populations in East Asia. Before altering any files I need to get a sense of what I'm working with. 
+To get a sense of this data I first performed a simple skim. Realizing how much space such a large dataset takes, I pushed this summary into a different object so I could illustrate the `head()` of the data here. 
+
 
 ```{r, viewdata1}
 ```
+The only issue with this is that you cannot get a sense of what the landmarks are in this view. To transform the data summary into something inclusive but not taking up too much room on the page, I utiled `kable` to view the first ten rows. 
+
+```{r, viewdata1.1}
+```
+This process was repeated for the second dataset. 
 
 ```{r, viewdata2}
 ```
 
+To understand the variables I wrote out the data dictionary used in Dr. Platchards dissertation. This is read in below). 
+
 ```{r, datadictionary1}
 ```
+To contextualize the above data, I decided to merge the demographic file with the two datasets. This information first needed to be written in plain text. In editing the file, I decided to remove the "Period" variable. Since I was only provided with data on modern populations, this category is not needed. 
 
-```{r, datadictionary2}
+```{r, demdata}
 ```
+Noting the common ID columns, it was easy to merge the demographic file with each of the datasets. That said, I was not sure how to merge the two data files together seemlessly. I played around with it for a while but had to move forward. 
 
 ```{r, mergedata}
 ```
 
+I didn't want the added information to sit at the end of the dataset so I relocated the factors to the first few columns. 
+
 ```{r, arrangedata}
 ```
+# Array Building
+
+My final task for this part of the project was to format the data into an array for geomorph. Geomorph comes with a function allow such a process called `arrayspecs()` requiring a simple formate detail the data to be used, the total number of landmarks, and the amount of data points to read for each landmark (x,y,z).
+
+When I first went through this process I ended up getting stuck in my analysis. The problem was because my dataframe cannot be read for Procrustes analyses unless it is numeric (no factors or characters included). This should have been a redflag signalling that the data was in the wrong format. Since I didn't think enough about this issue, I went ahead by removing the demographic data I had just included and transforming the character strings into integers.  
 
 ```{r, d1Array}
 ```
 
+I simply rinse and repeat for the second dataset. 
+
 ```{r, d2Array}
 ```
+
+# Pau

@@ -23,26 +23,41 @@ d1array <- readRDS(data_location1)
 
 
 ## ---- Step1 --------
-#From here it looks like d2 is ready for analysis
-#d1 is the complete dataset for Japan
-#d1array is the needed landmark data without the population and sex information in an array structure
+
+#Run GPA
 
 d1array.gpa <- gpagen(d1array, print.progress=FALSE)
 
 summary(d1array.gpa)
-plot(d1array.gpa)
 
-mshape(d1array)
+## ---- Step2 --------
+
+
+#Generate mean shape data. 
 
 d1Dat <- mshape(d1array)
+
+head(d1Dat)
+tail(d1Dat) 
+
+#Read in wireframe data
 
 d1Links <- "../../Data/Processed_data/d1Links.rds"
 
 d1Links <- readRDS(d1Links)
 
-d1Links
+head(d1Links)
+
+
+## ---- plot1 --------
+#Plot mean data with wireframe
 
 plot(d1Dat, d1Links)
+
+
+## ---- plot2 --------
+
+#Use function to alter aesthetics of plot
 
 plot.coords <- function(A, W, points.col="black", points.cex=1, lines.col="black", lines.wd=2, bg.col=NULL, 
                         main=NULL, main.line=2, main.cex=2, legend=NULL, legend.pos="topright", legend.title="", 
@@ -64,4 +79,17 @@ plot.coords <- function(A, W, points.col="black", points.cex=1, lines.col="black
   }
 }
 
+
 plot.coords(d1Dat, d1Links, points.col="blue", points.cex=1.5)
+
+## ---- D1Analysis --------
+
+D1.pca <- gm.prcomp(d1array.gpa$coords)
+
+D1.pca
+
+D1.pca.plot <- plot(D1.pca)
+
+
+
+

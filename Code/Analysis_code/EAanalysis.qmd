@@ -6,6 +6,12 @@ date: "04/05/2023"
 output: html_document
 ---
 
+# Goals and Shortcomings 
+
+The ultimate goal of this project was/is to illustrate the ways in which two geographically separated populations of modern humans differ in cranial dimensions. At the end of the project, one should be able to state confidently that the two populations are or are not morphologically distinct. 
+
+As the project went on, and time ran thin, I had to shift my analysis to working with only one population. My goal became to simply illustrate the data graphically and to run some basic level of analysis. Thus, the following effort only makes use of one of my two datasets (Japan). 
+
 This markdown file utilizes codechunks. 
 ```{r }
 #| cache = FALSE
@@ -24,6 +30,66 @@ setupKnitr(autoprint = TRUE)
 
 ```{r, loaddata}
 ```
+# General Procrustes Analysis
+
+My first step was to scale for size using a General Procrustes Analysis. 
+This step requires my array to be entirely numeric which is why I removed the demographic data in the processing script. In hindsight, I realize that this should have been a list with the array and demographic variables as separate attributes.
+
+I went back and tried to reorganize my data but fell flat. This, unfortunately, dictates how the rest of my analysis can go. Ultimately, I will fail to be able to illustrate the variables which dictate differences in the population. 
 
 ```{r, Step1}
 ```
+
+::: {#fig-Procrustes layout-ncol=2}
+
+![anterior](d1array.png){#fig-anterior}
+
+![lateral](d1array1.png){#fig-lateral}
+
+d1 array after Procrustes analysis
+:::
+
+To better illustrate the data, I was able to calculate the mean shape for all specimens. Additionally, I wanted to generate a wireframe to outline the cranial morphology. This part is not in my EAanalysis script because it would require the reviewer to select the landmarks they wanted to link. Instead, I ran the define.links function with the following code `define.links(d1Dat, ptsize = 7, links = NULL)` and saved the output as a .csv and .rds file in the `Processed_data` folder in my repo (d1Links.csv/d1Links.rds). This is then read in and applied here. 
+
+```{r, Step2}
+```
+# Plotting 
+
+The most satisfying part of this project was getting my wirefram and 3D model to work. The image below illustrates the overall shape profile of the human crania used in this study. Each of the 38 landmarks are labeled. Interestingly, I realized when doing this that the original investigator did not collect data on all of the landmarks reviewed in the data dictionary. I'm not sure why this is (not stated in the dissertation). 
+
+
+```{r, plot1}
+```
+
+While I liked this plot, I was hoping that I would be able to alter the aesthetics to make a clearer image. When looking online I came across a site built by Randi H Griffin, PhD that detailed layers of code that allows for a variety of different aesthetic actions in geomorph. This site and code can be found at: <http://www.randigriffin.com/2017/11/10/plotting-shape-changes-geomorph.html>
+
+I played around with this for a while but ultimately was only able to accomplish some minor adjustments. My biggest struggle was trying to get this to plot like the above 3D model. Since that was not possible, I opted to take snapshot images of my RGL window using `rgl.snapshot()` and save the images as .png files.
+
+Though I didn't get too far with Dr. Griffin's code, I'll be working through this over the summer. Too much good information here to pass up. 
+
+```{r, plot2}
+```
+
+
+::: {#fig-Means layout-ncol=2}
+![anterior](d1Graphic.png){Width=50%, #fig-anterior}
+
+![lateral](d1Graphic2){Width=50%, #fig-lateral}
+
+Cranial landmark means with defined links
+:::
+
+# Principal Components Analysis
+
+The last step that I had time for here was to run a simple PCA. The result below reflect the large amount of landmarks used for this analysis. While there are a lot of vectors here (n=107), it is easy to see that most of the variation is captured in the first two PCs. 
+
+```{r, D1Analysis}
+```
+
+The results of this analysis highlighted two issues that I was anticipating. My first issue is minor. Since I was unable to complete my task of comparing two geographically separated populations, the variation present in this sample is relatively minor. That said, there does seem to be some discernable differentiation along PC 1. My second issue comes from my inability to illustrate what variables contribut to this variation. 
+
+One problem I had early on was found in transforming my data frame into an array for geomorph. While the `array.specs()` function worked well enough, when I tried to run the Procrustes analysis on this data I received an error stating that the array had to be numeric. This meant that I needed to remove the demographic variables (factors) and coerce the rest of the data as numeric (see processing code lines #151 and #189). Without associated variables, I cannot sort the data in my PCA nor can I do the Relative Warps analyses that I was hoping too. 
+
+These are all issues that I will continue to sort out over the coming weeks. 
+
+# Pau

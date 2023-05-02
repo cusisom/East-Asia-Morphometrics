@@ -18,6 +18,7 @@ require(gapminder)
 data_location1 <- "../../Data/Raw_data/Raw_Japan.csv"
 data_location2 <- "../../Data/Raw_data/Raw_korea.csv"
 data_path <- "../../Data/Raw_data/"
+d2 <- read.csv(paste(data_path, "Raw_classifiers.csv", sep=""))
 
 #I need to read in the rawdata.
 
@@ -29,6 +30,8 @@ rawdata1$ID <- as.factor(rawdata1$ID)
 
 sk1 <- skim(rawdata1)
 sk1 <- as.data.frame(sk1)
+
+## ---- viewdata1.1 --------
 
 head(sk1)
 kable(rawdata1[1:10, ])
@@ -53,9 +56,10 @@ knitr::kable(dictionary1)
 save_data_location_csv <- "../../Data/Processed_data/datadictionary.csv"
 write.csv(dictionary1, file = save_data_location_csv, row.names=FALSE)
 
-## ---- datadictionary2 --------
+## ---- demdata --------
 
-d2 <- read.csv(paste(data_path, "Raw_classifiers.csv", sep=""))
+# Editing for Visualization
+
 skim(d2)
 kable(d2[1:10, ])
 
@@ -73,6 +77,8 @@ d2$Sex[ii] <- "Female"
 
 ii <- grep("JF", d2$Sex)
 d2$Sex[ii] <- "Female"
+
+#There are a few individuals in the Korean collection that are classified as indeterminate (KI). I change this to NA values. 
 
 ii <- grep("KI", d2$Sex)
 d2$Sex[ii] <- "NA"
@@ -95,6 +101,8 @@ kable(d2[1:10, ])
 
 ## ---- mergedata --------
 
+
+
 dat <- merge(rawdata1, d2, by= "ID")
 kable(dat[1:10, ])
 
@@ -108,33 +116,34 @@ d1 <- dat %>% relocate(where(is.factor), .before = Xalarl)
 
 kable(d1[1:10, ])
 
+save_data_location_csv <- "../../Data/Processed_data/Japan_dem.csv"
+write.csv(d1, file = save_data_location_csv, row.names=FALSE)
+
+save_data_location <- "../../Data/Processed_data/Japan_dem.rds"
+saveRDS(d1, file = save_data_location)
+
 d2 <- dat1 %>% relocate(where(is.factor), .before = Xalarl)
 
 kable(d2[1:10, ])
 
+save_data_location_csv <- "../../Data/Processed_data/Korea_dem.csv"
+write.csv(d2, file = save_data_location_csv, row.names=FALSE)
+
+save_data_location <- "../../Data/Processed_data/Korea_dem.rds"
+saveRDS(d2, file = save_data_location)
+
 ## ---- d1Array --------
 
-#I need to organize my data into a format that works for geomorph
-#I start by subsetting the data without the demographic information
+#subset the data without the demographic information
 
 land1 <- d1[,-c(1:3)]
 
-#In making my array, I will still want each individual sheet to be associated with the specimen IDs instead of numeric rownames
-#Check rownames
+#Make sure that my data is classified as numeric.
+
+class(land1)
 rownames(land1)
-class(rownames(land1))
-#This will become an issue later as I try to run my analyses.
-#I will take care of the problem now and convert this to numeric.
 
 
-kable(land1[1:10, ])
-
-
-#this tells me that my data is comprised of 92 individual specimens, each with and associated 114 landmark measurements
-#I know that each landmark is given x, y, and z data
-#I will want my array to be comprised of 92 sheets containing x, y, and z data for each landmark
-#I then need to determine the number of landmarks
-#Noting that there are three data points for each I can divide the total measure by 3 to get the total landmarks
 
 my_mat <- apply(as.matrix.noquote(land1), 2, as.numeric)
 my_mat[1:4,1:3]
@@ -143,14 +152,14 @@ my_mat[1:4,1:3]
 #I need to determine how many landmarks I have so I can set the parameters
 
 dim(land1)
-#From this I can develop an array for my land2 data (92 specimens) that has 38 landmarks with 3 measures per landmark
+#From this I can develop an array for my land2 data (92 specimens) 
+#that has 38 landmarks with 3 measures per landmark
+
+#Transform the data with arrayspecs()
 
 d1array <- arrayspecs(my_mat, 38, 3)
 
-
-
-#I want to check my data but I don't want it to take up too much space
-#I can index the first couple of sheets to see the layout
+#Check and save array
 
 str(d1array)
 
@@ -162,61 +171,28 @@ saveRDS(d1array, file = save_data_location)
 
 ## ---- d2Array --------
 
-#I need to organize my data into a format that works for geomorph
-#I start by subsetting the data without the demographic information
+#Repeat the process above for the d2 dataset.
 
 land2 <- d2[,-c(1:3)]
-
-#In making my array, I will still want each individual sheet to be associated with the specimen IDs instead of numeric rownames
-#Check rownames
-rownames(land2)
-
-
-kable(land2[1:10, ])
-
 my_mat2 <- apply(as.matrix.noquote(land2), 2, as.numeric)
 my_mat2[1:4,1:3]
 
-#Next step is to transform my data into an array
-#I need to determine how many landmarks I have so I can set the parameters
+#Double check the d2 dimensions.
 
 dim(land2)
 
-#this tells me that my data is comprised of 92 individual specimens, each with and associated 114 landmark measurements
-#I know that each landmark is given x, y, and z data
-#I will want my array to be comprised of 92 sheets containing x, y, and z data for each landmark
-#I then need to determine the number of landmarks
-#Noting that there are three data points for each I can divide the total measure by 3 to get the total landmarks
-
-114/3
-
-#From this I can develop an array for my land2 data (92 specimens) that has 38 landmarks with 3 measures per landmark
-
-my_mat2 <- apply(as.matrix.noquote(land2), 2, as.numeric)
-my_mat2[1:4,1:3]
-
-#From this I can develop an array for my land2 data (92 specimens) that has 38 landmarks with 3 measures per landmark
+#Set array.
 
 d2array <- arrayspecs(my_mat2, 38, 3)
-
 
 #I want to check my data but I don't want it to take up too much space
 #I can index the first couple of sheets to see the layout
 
 d2array[1:4, , 1:2]
 
-#I'll also make sure that my number of landmarks per specimen is correct
+#Check structure.
 
 str(d2array)
-
-save_data_location_csv <- "../../Data/Processed_data/Korea_array.csv"
-write.csv(d2array, file = save_data_location_csv, row.names=FALSE)
-
-#From here it looks like d2 is ready for analysis
-#d2 is the complete dataset for Korea
-#d2array is the needed landmark data without the population and sex information in an array structure
-
-
 
 save_data_location_csv <- "../../Data/Processed_data/Korea_array.csv"
 write.csv(d2array, file = save_data_location_csv, row.names=FALSE)
