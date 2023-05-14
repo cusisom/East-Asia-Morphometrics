@@ -1,8 +1,6 @@
 ###New Attempt###
 
 
-setwd("C:/Users/danny/Documents/git/East-Asia-Morphometrics/Code/Processing_code")
-
 require(plyr)
 require(dplyr) #for data processing/cleaning
 require(tidyr) #for data processing/cleaning
